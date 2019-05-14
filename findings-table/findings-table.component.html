@@ -1,0 +1,21 @@
+<div class="table-container">
+  <table class="ui inverted unstackable striped celled sortable table">
+    <thead>
+      <tr>
+        <th id="rank" class="rotate one wide {{getColumnSortClasses('rank')}}" (click)="applySort('risk')"><div><span>Rank</span></div></th>
+        <th class="rotate one wide {{getColumnSortClasses('turbine')}}" (click)="applySort('turbine')"><div><span>Turbine</span></div></th>
+        <th class="rotate three wide {{getColumnSortClasses('farm')}}" (click)="applySort('farm')"><div><span>Farm</span></div></th>
+        <th *ngIf="visibleColumns.inspection" class="trivial rotate one wide center aligned {{getColumnSortClasses('inspection')}}" (click)="applySort('inspection')"><div><span>fieldPRO</span></div></th>
+        <th *ngIf="visibleColumns.vibration" class="trivial rotate one wide center aligned {{getColumnSortClasses('vibration')}}" (click)="applySort('vibration')"><div><span>Vibration</span></div></th>
+        <th *ngIf="visibleColumns.scada" class="trivial rotate one wide center aligned {{getColumnSortClasses('scada')}}" (click)="applySort('scada')"><div><span>SCADA</span></div></th>
+        <th *ngIf="visibleColumns.temperature" class="trivial rotate one wide center aligned {{getColumnSortClasses('temperature')}}" (click)="applySort('temperature')"><div><span>Temperature</span></div></th>
+        <th *ngIf="visibleColumns.lubrication" class="trivial rotate one wide center aligned {{getColumnSortClasses('lubrication')}}" (click)="applySort('lubrication')"><div><span>Lubrication</span></div></th>
+        <th *ngIf="visibleColumns.site" class="trivial rotate one wide center aligned {{getColumnSortClasses('site')}}" (click)="applySort('site')"><div><span>Site</span></div></th>
+        <th class="rotate two wide center aligned {{getColumnSortClasses('risk')}}" (click)="applySort('risk')"><div><span>Overall Risk</span></div></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr app-findings-table-row *ngFor="let turbineFindings of sortedTurbineFindings | async" [turbineFindings]="turbineFindings"></tr>
+    </tbody>
+  </table>
+</div>
