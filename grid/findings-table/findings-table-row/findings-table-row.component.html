@@ -1,0 +1,10 @@
+<td id="rank"><span class="ui medium {{ riskColour }} ribbon label">{{ turbineFindings.rank }}</span></td>
+<td>{{ turbineFindings.turbine.name }}</td>
+<td>{{ turbineFindings.turbine.siteName }}</td>
+<td *ngIf="visibleColumns.inspection" class="trivial {{ getDataSourceColour(_dataSource.Inspection) }}"></td>
+<td *ngIf="visibleColumns.vibration" class="trivial {{ getDataSourceColour(_dataSource.Vibration) }}"></td>
+<td *ngIf="visibleColumns.scada" class="trivial {{ getDataSourceColour(_dataSource.Scada) }}"></td>
+<td *ngIf="visibleColumns.temperature" class="trivial {{ getDataSourceColour(_dataSource.Temperature) }}"></td>
+<td *ngIf="visibleColumns.lubrication" class="trivial {{ getDataSourceColour(_dataSource.Lubrication) }}"></td>
+<td *ngIf="visibleColumns.site" class="trivial {{ getDataSourceColour(_dataSource.Site) }}"></td>
+<td class="{{ riskColour }}">{{ roundedRisk }} ({{ percentage }}%)</td>
