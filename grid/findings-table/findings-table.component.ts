@@ -40,13 +40,6 @@ export class FindingsTableComponent {
           return sorted;
         }
 
-        if (Object.values(DataSource).includes(column)) {
-          sorted.sort((tf1, tf2) => {
-            const w1 = RankingUtils.calculateRiskScore(tf1.findings, this.userService.userDetails.config.weights, <DataSource>(column));
-            const w2 = RankingUtils.calculateRiskScore(tf2.findings, this.userService.userDetails.config.weights, <DataSource>(column));
-            return w1 - w2;
-          });
-        }
         if (column === 'farm') {
           sorted.sort((tf1, tf2) => {
             return tf1.turbine.siteName.localeCompare(tf2.turbine.siteName);
